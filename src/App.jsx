@@ -2,17 +2,23 @@ import { useState } from 'react'
 import reactLogo from './assets/react.svg'
 import './App.css'
 
+// Test data
+import data from './data.json'
+
+// Components
+import Header from './components/Header'
+import ToDoList from './components/ToDoList'
+import ToDo from './components/ToDo'
+
 export default function App() {
   const [count, setCount] = useState(0)
+  const [toDoList, setToDoList] = useState(data)
 
   return (
     <div className="App">
+      <Header />
+      <ToDoList toDoList={toDoList} />
       {
-        <TodoList />
-
-
-
-
         // <div>
         //   <div>
         //       <h1>John's Todo List</h1>
@@ -39,7 +45,7 @@ export default function App() {
   )
 }
 
-function TodoList() {
+function OgTodoList() {
   return (
     <div>
       <Heading />
