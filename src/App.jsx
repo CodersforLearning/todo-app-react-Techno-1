@@ -29,6 +29,13 @@ const handleToggle = (id) => {
   setToDoList(mapped);
 }
 
+const handleFilter = () => {
+  let filtered = toDoList.filter(task => {
+    return !task.complete;
+  });
+  setToDoList(filtered);
+}
+
 
 
 
