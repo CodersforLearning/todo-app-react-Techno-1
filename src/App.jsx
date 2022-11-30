@@ -18,29 +18,6 @@ export default function App() {
     <div className="App">
       <Header />
       <ToDoList toDoList={toDoList} />
-      {
-        // <div>
-        //   <div>
-        //       <h1>John's Todo List</h1>
-        //       <div id="numberOfTasks">
-        //           <h3>Number Of Tasks:&nbsp</h3>
-        //           <h3 id="taskNumber"></h3>
-        //       </div>
-        //   </div>
-        //   <div>
-        //       <form>
-        //           <input id="newTask" type="text" placeholder="Add task"></input>
-        //           <button id="submit">Submit</button>
-        //           <button id="tellJoke">Wanna hear a joke?</button>
-        //       </form>
-        //   </div>
-        //   <div>
-        //       <ul id="taskList">
-
-        //       </ul>
-        //   </div>
-        // </div>
-      }
     </div>
   )
 }
