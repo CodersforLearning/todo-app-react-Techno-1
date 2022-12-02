@@ -9,6 +9,7 @@ import data from './data.json'
 import Header from './components/Header'
 import ToDoList from './components/ToDoList'
 import ToDo from './components/ToDo'
+import TodoForm from './components/ToDoForm'
 
 export default function App() {
   const [count, setCount] = useState(0)
@@ -27,12 +28,39 @@ export default function App() {
     });
     setToDoList(filtered);
   }
-  
+
+  const handleSubmit = (e) => {
+    e.preventDefault()
+    console.log('Submitted')
+    console.log(e.currentTarget[0].value)
+    const newTask = e.currentTarget[0].value
+    e.currentTarget[0].value = ''
+    addTask(newTask)
+  }  
+
+  const addTask = (newTask) => {
+    let copy = [...toDoList]
+    copy = [{id: toDoList.length + 1, task: newTask, complete: false}, ...toDoList]
+    setToDoList(copy)
+    newTask = ''
+  }
+
+  const removeTask = (e) => {
+    let id = e.currentTarget.id
+    console.log('removing')
+    console.log(id)
+    let filteredId = toDoList.filter(task => {
+      return task.id == id ? false : true
+    })
+    setToDoList(filteredId)
+  }
+
 
   return (
     <div className="App">
       <Header />
-      <ToDoList toDoList={toDoList} handleToggle={handleToggle} handleFilter={handleFilter} />
+      <TodoForm handleSubmit={handleSubmit} />
+      <ToDoList toDoList={toDoList} handleToggle={handleToggle} handleFilter={handleFilter} removeTask={removeTask} />
     </div>
   )
 }
