@@ -5,9 +5,11 @@ export default function ToDo({todo, handleToggle, removeTask}) {
     }
 
     return (
-        <div id={todo.id} key={todo.id + todo.task} name="todo" value={todo.id} onClick={handleClick} className={todo.complete ? "todo strike" : "todo"}>
+        <div>
+            <div id={todo.id} key={todo.id + todo.task} name="todo" value={todo.id} onClick={handleClick} className={todo.complete ? "todo strike" : "todo"}>
             {todo.task}
-            <input type='button' value='X' onClick={removeTask}/>
-        </div>
+            </div>
+            <input id={todo.id} type='button' value='X' onClick={removeTask} />
+        </div>  
     )
 }

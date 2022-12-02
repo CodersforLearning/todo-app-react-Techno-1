@@ -45,11 +45,14 @@ export default function App() {
     newTask = ''
   }
 
-  const removeTask = (id) => {
+  const removeTask = (e) => {
+    let id = e.currentTarget.id
     console.log('removing')
-    let copy = toDoList
-    let removedArray = copy.splice(id, id)
-    setToDoList(copy) 
+    console.log(id)
+    let filteredId = toDoList.filter(task => {
+      return task.id == id ? false : true
+    })
+    setToDoList(filteredId)
   }
 
 
